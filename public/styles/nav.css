@@ -1,0 +1,36 @@
+#main-header{
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    max-width: 60rem;
+    margin: 0 auto;
+    padding: var(--space-6);
+    height: 5rem;
+    border-bottom: 1px solid var(--color-primary-500);
+    border-radius: var(--border-radius-medium);
+    color: var(--color-primary-400);
+    background-color: var(--color-primary-500-bg);
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#main-header a{
+    color: var(--color-primary-400);
+    padding: var(--space-2);
+}
+
+#main-header nav{
+    width: 40%;
+}
+
+.nav-items{
+    display: flex;
+    justify-content: space-around;
+}
+
+#logo{
+    font-size: 2rem;
+}
