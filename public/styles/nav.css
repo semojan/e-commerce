@@ -9,7 +9,7 @@
     height: 5rem;
     border-bottom: 1px solid var(--color-primary-500);
     border-radius: var(--border-radius-medium);
-    color: var(--color-primary-400);
+    color: var(--color-primary-300);
     background-color: var(--color-primary-500-bg);
     font-weight: bold;
     display: flex;
@@ -18,7 +18,7 @@
 }
 
 #main-header a{
-    color: var(--color-primary-400);
+    color: var(--color-primary-300);
     padding: var(--space-2);
 }
 
