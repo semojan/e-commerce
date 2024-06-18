@@ -8,7 +8,7 @@
         <form action="/signup" method="POST">
             <div>
                 <label for="email">E-mail</label>
-                <input type="email" name="email" id="email" required>
+                <input type="email" name="email" id="email" required value="<%= inputData.email %>">
             </div>
             <div>
                 <label for="pass">Password</label>
@@ -21,15 +21,15 @@
             <hr>
             <div> 
                 <label for="full-name">Full Name</label>
-                <input type="text" name="full-name" id="full-name" required>
+                <input type="text" name="full-name" id="full-name" required value="<%= inputData.fullName %>">
             </div>
             <div>
                 <label for="street">Street</label>
-                <input type="text" name="street" id="street" required>
+                <input type="text" name="street" id="street" required value="<%= inputData.street %>">
             </div>
             <div>
                 <label for="city">City</label>
-                <input type="text" name="city" id="city" required>
+                <input type="text" name="city" id="city" required value="<%= inputData.city %>">
             </div>
             <button class="btn" type="submit">Signup</button>
             <span><a href="/login">Login Instead</a></span>

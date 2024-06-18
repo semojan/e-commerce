@@ -1,5 +1,18 @@
+const sessionFlash = require("../ConfigAndAssets/sessionFlash");
+
 function getSignup(req, res, next){
-    res.render("./shared/signup");
+    let sessionData = sessionFlash.getSessionData(req);
+
+    if(!sessionData){
+        sessionData = {
+            email: "",
+            fullName: "",
+            street: "",
+            city:""
+        };
+    }
+
+    res.render("./shared/signup", {inputData: sessionData});
 }
 
 function postSignup(req, res, next){
@@ -7,7 +20,15 @@ function postSignup(req, res, next){
 }
 
 function getLogin(req, res, next){
-    res.render("./shared/login");
+    let sessionData = sessionFlash.getSessionData(req);
+
+    if(!sessionData){
+        sessionData = {
+            email: ""
+        };
+    }
+
+    res.render("./shared/login", {inputData: sessionData});
 }
 
 function postLogin(req, res, next){
