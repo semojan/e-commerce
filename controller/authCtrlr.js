@@ -7,7 +7,7 @@ function postSignup(req, res, next){
 }
 
 function getLogin(req, res, next){
-    console.log("hi")
+    res.render("./shared/login");
 }
 
 function postLogin(req, res, next){

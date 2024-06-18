@@ -1,0 +1,22 @@
+<%- include("./includes/head", {Ptitle: "Signup"}); %>
+<link rel="stylesheet" href="styles/auth.css">
+</head>
+<body>
+    <%- include("./includes/header"); %>
+    <main>
+        <h1>Create New Account</h1>
+        <form action="/login" method="POST">
+            <div>
+                <label for="email">E-mail</label>
+                <input type="email" name="email" id="email" required>
+            </div>
+            <div>
+                <label for="pass">Password</label>
+                <input type="password" name="pass" id="pass" required>
+            </div>
+            <button class="btn" type="submit">Login</button>
+            <span><a href="/signup">Signup Instead</a></span>
+        </form>
+    </main>
+</body>
+</html>
