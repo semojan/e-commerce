@@ -6,6 +6,7 @@
     <main>
         <h1>Create New Account</h1>
         <form action="/signup" method="POST">
+            <div class="errorM"><%= inputData.message %></div>
             <div>
                 <label for="email">E-mail</label>
                 <input type="email" name="email" id="email" required value="<%= inputData.email %>">
@@ -15,13 +16,13 @@
                 <input type="password" name="pass" id="pass" required>
             </div>
             <div>
-                <label for="confirm-pass">Confirm Password</label>
-                <input type="password" name="confirm-pass" id="confirm-pass" required>
+                <label for="confirmPass">Confirm Password</label>
+                <input type="password" name="confirmPass" id="confirmPass" required>
             </div>
             <hr>
             <div> 
-                <label for="full-name">Full Name</label>
-                <input type="text" name="full-name" id="full-name" required value="<%= inputData.fullName %>">
+                <label for="fullName">Full Name</label>
+                <input type="text" name="fullName" id="fullName" required value="<%= inputData.fullName %>">
             </div>
             <div>
                 <label for="street">Street</label>
