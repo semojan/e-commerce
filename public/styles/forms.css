@@ -8,7 +8,7 @@ label{
     padding: var(--space-2);
 }
 
-input{
+input , textarea{
     padding: var(--space-2);
     border-radius: var(--border-radius-small);
     width: 90%;

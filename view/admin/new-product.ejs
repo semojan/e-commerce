@@ -1,0 +1,13 @@
+<%- include("../shared/includes/head", {Ptitle: "Add New Product"}); %>
+    <link rel="stylesheet" href="/styles/products.css">
+</head>
+<body>
+    <%- include("../shared/includes/header"); %>
+    <main>
+        <h1>Add new Product</h1>
+        <form action="/admin/product/new" method="POST" id="add-prod">
+            <%- include("./includes/prod-form") %>
+        </form>
+    </main>
+</body>
+</html>

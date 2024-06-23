@@ -18,11 +18,13 @@ app.use(esession(sessionConfig()));
 
 const baseRoutes = require("./routes/baseRoutes");
 const authRoutes = require("./routes/authRoutes");
+const adminRoutes = require("./routes/adminRoutes");
 
 app.use(middlewares.checkAuth);
 
 app.use(baseRoutes);
 app.use(authRoutes);
+app.use("/admin", adminRoutes);
 
 db.connectTodb().then(function(){
     app.listen(1234);

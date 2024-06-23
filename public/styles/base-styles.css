@@ -51,7 +51,7 @@ body {
 main{
     width: 90%;
     max-width: 50rem;
-    margin: 0 auto;
+    margin: var(--space-4) auto;
 }
 
 a{
@@ -86,7 +86,6 @@ a{
     margin: 0.25rem;
 }
 
-.btn:hover, .btn:active{
+.alt-btn:hover, .alt-btn:active{
     border-color: var(--color-primary-700);
-    color: var(--color-primary-700);
 }
