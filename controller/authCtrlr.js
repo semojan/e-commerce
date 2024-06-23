@@ -136,7 +136,7 @@ async function postLogin(req, res, next){
     });
 }
 
-function getLogout(res, req, next){
+function getLogout(req, res, next){
     authUtil.destroySession(req);
     res.redirect("/login");
 }

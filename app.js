@@ -4,6 +4,7 @@ const esession = require('express-session');
 const path = require("path");
 const db = require("./data/db");
 const sessionConfig = require("./ConfigAndAssets/sessionConfig");
+const middlewares = require("./ConfigAndAssets/middlewares");
 
 const app = express();
 
@@ -17,6 +18,8 @@ app.use(esession(sessionConfig()));
 
 const baseRoutes = require("./routes/baseRoutes");
 const authRoutes = require("./routes/authRoutes");
+
+app.use(middlewares.checkAuth);
 
 app.use(baseRoutes);
 app.use(authRoutes);

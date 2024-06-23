@@ -38,7 +38,6 @@ class User {
     }
 
     async comparePass(pass){
-        console.log([pass, this.pass])
         return await bcrypt.compare(this.pass, pass);
     }
 }

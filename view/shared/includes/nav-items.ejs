@@ -1,20 +1,54 @@
 <ul class="nav-items">
-    <li>
-        <a href="/">Shop</a>
-    </li>
-    <li>
-        <a href="/cart">
-            Cart
-        </a>
-    </li>
-    <li>
-        <a href="/signup">
-            Signup
-        </a>
-    </li>
-    <li>
-        <a href="login">
-            Login
-        </a>
-    </li>
+    <% if(locals.isAdmin){ %>
+        <li>
+            <a href="/admin/manage_product">
+                Manage Products
+            </a>
+        </li>
+        <li>
+            <a href="/admin/manage_order">
+                Manage Orders
+            </a>
+        </li>
+    <% } else if(locals.isAuth) { %>
+        <li>
+            <a href="/">Shop</a>
+        </li>
+        <li>
+            <a href="/cart">
+                Cart
+            </a>
+        </li>
+        <li>
+            <a href="/orders">
+                Orders
+            </a>
+        </li>
+    <% } %>
+    <% if(!locals.uid){ %>
+        <li>
+            <a href="/">Shop</a>
+        </li>
+        <li>
+            <a href="/cart">
+                Cart
+            </a>
+        </li>
+        <li>
+            <a href="/signup">
+                Signup
+            </a>
+        </li>
+        <li>
+            <a href="/login">
+                Login
+            </a>
+        </li>
+    <% } else { %>
+        <li class="alt-btn">
+            <a href="/logout">
+                Logout
+            </a>
+        </li>
+    <% } %>
 </ul>
