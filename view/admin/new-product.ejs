@@ -5,7 +5,7 @@
     <%- include("../shared/includes/header"); %>
     <main>
         <h1>Add new Product</h1>
-        <form action="/admin/product/new" method="POST" id="add-prod">
+        <form action="/admin/product" method="POST" id="add-prod" enctype="multipart/form-data">
             <%- include("./includes/prod-form") %>
         </form>
     </main>
