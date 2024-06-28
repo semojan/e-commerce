@@ -14,6 +14,14 @@ class Product{
         }
     }
 
+    static async findAll (){
+        const products = await db.getDB().collection("products").find().toArray();
+
+        return products.map(function (productData){
+            return new Product(productData);
+        });
+    }
+
     async save(){
         let price;
         if(!this.price){
@@ -32,7 +40,7 @@ class Product{
 
 
         if (this.id){} else {
-            await db.getDB().collection("products").insertOne({prodData});
+            await db.getDB().collection("products").insertOne(prodData);
         }
     }
 }

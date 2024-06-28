@@ -9,6 +9,7 @@ const middlewares = require("./ConfigAndAssets/middlewares");
 const app = express();
 
 app.use(express.static("public"));
+app.use("/product/assets/images", express.static("images"));
 app.use(express.urlencoded({extended: false}));
 
 app.set("view engine", "ejs");
