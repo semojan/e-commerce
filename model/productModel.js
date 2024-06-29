@@ -8,11 +8,15 @@ class Product{
         this.price = +productData.price;
         this.description = productData.description;
         this.image = productData.image;
-        this.imagePath = `images/${this.image}`;
-        this.imageUrl = `/product/assets/images/${this.image}`;
+        this.createImgPath();
         if (productData._id) {
             this.id = productData._id.toString();
         }
+    }
+
+    createImgPath(){
+        this.imagePath = `images/${this.image}`;
+        this.imageUrl = `/product/assets/images/${this.image}`;
     }
 
     static async findAll (){
@@ -40,7 +44,15 @@ class Product{
         };
 
 
-        if (this.id){} else {
+        if (this.id){
+            const pid = new mongodb.ObjectId(this.id);
+            if(!this.image){
+                delete prodData.image;
+            }
+            await db.getDB().collection("products").updateOne({_id: pid}, {$set:{
+                ...prodData
+            }});
+        } else {
             await db.getDB().collection("products").insertOne(prodData);
         }
     }
@@ -63,6 +75,11 @@ class Product{
         }
 
         return product;
+    }
+
+    replaceImage(newImg){
+        this.image = newImg;
+        this.createImgPath();
     }
 }
 

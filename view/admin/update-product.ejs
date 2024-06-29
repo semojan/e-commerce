@@ -5,9 +5,9 @@
     <%- include("../shared/includes/header"); %>
     <main>
         <h1>Update Product</h1>
-        <form action="/admin/product" method="POST" id="add-prod" enctype="multipart/form-data">
+        <form action="/admin/product/<%= product._id %>" method="POST" id="add-prod" enctype="multipart/form-data">
             <%- include("./includes/prod-form", {prod: product}) %>
         </form>
     </main>
 </body>
-</html>
+</html> 
