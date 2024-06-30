@@ -74,12 +74,18 @@ class Product{
             throw error;
         }
 
-        return product;
+        return new Product(product);
     }
 
     replaceImage(newImg){
         this.image = newImg;
         this.createImgPath();
+    }
+
+    async removeProduct(){
+        const pid = new mongodb.ObjectId(this.id);
+
+        await db.getDB().collection("products").deleteOne({_id: pid});
     }
 }
 

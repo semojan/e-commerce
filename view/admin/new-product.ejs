@@ -1,5 +1,6 @@
 <%- include("../shared/includes/head", {Ptitle: "Add New Product"}); %>
     <link rel="stylesheet" href="/styles/products.css">
+    <script src="/scripts/image-preview.js" defer></script>
 </head>
 <body>
     <%- include("../shared/includes/header"); %>
@@ -10,7 +11,9 @@
                 title: "",
                 summary: "",
                 price: "",
-                description: ""
+                description: "",
+                image: "",
+                imgRequired: true
             }}) %>
         </form>
     </main>
