@@ -20,12 +20,15 @@ app.use(esession(sessionConfig()));
 const baseRoutes = require("./routes/baseRoutes");
 const authRoutes = require("./routes/authRoutes");
 const adminRoutes = require("./routes/adminRoutes");
+const prodRoutes = require("./routes/productRoutes");
 
 app.use(middlewares.checkAuth);
 
 app.use(baseRoutes);
 app.use(authRoutes);
-app.use("/admin", adminRoutes);
+app.use(prodRoutes);
+app.use("/admin", middlewares.protectRoutes, adminRoutes);
+app.use(middlewares.errorHandler);
 
 db.connectTodb().then(function(){
     app.listen(1234);

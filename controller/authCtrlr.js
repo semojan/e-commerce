@@ -119,7 +119,6 @@ async function postLogin(req, res, next){
 
     const correctPass = await user.comparePass(existingUser.pass.toString());
 
-    console.log(correctPass)
     if(!correctPass){
         sessionFlash.FlashToSession(req, {
             email: req.body.email,
@@ -132,7 +131,11 @@ async function postLogin(req, res, next){
     }
 
     authUtil.createSession(req, existingUser, function(){
-        res.redirect("/");
+        if(res.locals.isAdmin){
+            res.redirect("/admin/product");
+        }else{
+            res.redirect("/");
+        }      
     });
 }
 

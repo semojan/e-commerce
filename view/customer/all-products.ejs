@@ -1,8 +1,18 @@
-<%- include("../shared/includes/head", {Ptitle: "My Shop"}); %>
+<%- include("../shared/includes/head", {Ptitle: "Products"}); %>
+    <link rel="stylesheet" href="/styles/products.css">
+    <script src="/scripts/product.js" defer></script>
 </head>
 <body>
     <%- include("../shared/includes/header"); %>
     <main>
+        <h1>Products</h1>
+        <section>
+            <ul>
+                <% for (prod of products){ %>
+                    <%- include("../shared/includes/product-item", {prod: prod}); %>
+                <% } %>
+            </ul>
+        </section>
     </main>
 </body>
 </html>

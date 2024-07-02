@@ -1,0 +1,27 @@
+<%- include("../shared/includes/head", {Ptitle: "Products"}); %>
+    <link rel="stylesheet" href="/styles/products.css">
+    <script src="/scripts/product.js" defer></script>
+</head>
+<body>
+    <%- include("../shared/includes/header"); %>
+    <main id="prod-detail">
+        <header>
+            <div>
+                <img src="<%= prod.imageUrl %>" alt="<%= prod.image %>">
+            </div>
+            <div>
+                <h1><%= prod.title %></h1>
+                <p>
+                    <% if(prod.price === -1){ %>
+                        Out of Stock
+                    <% }else{ %>
+                        <%= prod.price %> $
+                    <% } %>
+                </p>
+                <button data-pid="<%= prod.id %>" class="btn">Add to Cart</button>
+            </div>
+        </header>
+        <p><%= prod.description %></p>
+    </main>
+</body>
+</html>
