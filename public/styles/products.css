@@ -89,7 +89,8 @@ img{
 }
 
 #prod-detail img{
-    width: 15rem;
+    width: 20rem;
+    height: 15rem;
     rotate: 20deg;
     border-radius: var(--border-radius-medium);
     object-fit: cover;

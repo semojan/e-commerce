@@ -14,7 +14,6 @@ async function getProductDetail(req, res, next){
     const pid = req.params.pid;
     try{
         const product = await Product.findProdById(pid);
-        console.log(product)
         res.render("customer/product-detail", {prod: product});
     }catch(e){
         next(e);

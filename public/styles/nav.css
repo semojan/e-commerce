@@ -95,3 +95,11 @@
         display: flex;
     }
 }
+
+.badge{
+    background-color: var(--color-primary-500);
+    color: var(--color-primary-500-contrast);
+    margin-left: var(--space-2);
+    padding: 0.15rem var(--space-2);
+    border-radius: 10rem;
+}

@@ -1,3 +1,5 @@
+const Cart = require("../model/cartModel");
+
 function checkAuth(req, res, next){
     const uid = req.session.uid;
 
@@ -34,8 +36,24 @@ function protectRoutes(req, res, next){
     next();
 }
 
+function cartInitializer(req, res, next){
+    let cart;
+
+    if(!req.session.cart){
+        cart = new Cart();
+    }else{
+        cart = new Cart(req.session.cart.items, req.session.cart.totalQuantity, req.session.cart.totalPrice);
+    }
+
+    req.session.cart = cart;
+    res.locals.cartTotalQuantity = cart.totalQuantity;
+    
+    next();
+}
+
 module.exports  = {
     checkAuth: checkAuth,
     errorHandler:  errorHandler,
-    protectRoutes: protectRoutes
+    protectRoutes: protectRoutes,
+    cartInitializer: cartInitializer
 };
