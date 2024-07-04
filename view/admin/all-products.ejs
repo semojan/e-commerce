@@ -1,0 +1,31 @@
+<%- include("../shared/includes/head", {Ptitle: "Products"}); %>
+    <link rel="stylesheet" href="/styles/products.css">
+    <script src="/scripts/product.js" defer></script>
+</head>
+<body>
+    <%- include("../shared/includes/header"); %>
+    <main>
+        <h1>Products</h1>
+        <section>
+            Manage Products
+            <a href="/admin/product/new" class="btn">Add Product</a>
+        </section>
+        <section>
+            <ul>
+                <% for (prod of products){ %>
+                    <li>
+                        <article class="prod-item">
+                            <img src="<%= prod.imageUrl %>" alt="<%= prod.image %>" />
+                            <h2><%= prod.title %></h2>
+                            <div>
+                                <a href="/admin/product/<%= prod.id %>" class="btn">Edit</a>
+                                <button class="btn deleteBtn" data-pid="<%= prod.id %>">Delete</button>
+                            </div>
+                        </article>
+                    </li>
+                <% } %>
+            </ul>
+        </section>
+    </main>
+</body>
+</html>

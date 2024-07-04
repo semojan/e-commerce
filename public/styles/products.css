@@ -1,0 +1,139 @@
+main>section{
+    margin: var(--space-8) 0;
+}
+
+#add-prod{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 95%;
+}
+
+#add-prod>div{
+    align-items: flex-start;
+    width: 100%;
+}
+
+#add-prod input , #add-prod textarea{
+    width: 100%;
+}
+
+#add-prod>div:last-child, #add-prod .image{
+    flex-direction: row;
+}
+
+
+#add-prod .image{
+    justify-content: flex-start;
+    align-items: center;
+}
+
+#add-prod .image input{
+    margin-top: var(--space-4);
+    border: 0;
+}
+
+section>ul{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+    gap: var(--space-4);
+    margin: var(--space-8) 0;
+    padding: var(--space-8) 0;
+}
+
+.prod-item{
+    background-color: var(--color-primary-800);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: var(--space-4);
+    border-radius: var(--border-radius-medium);
+    overflow: hidden;
+}
+
+.prod-item>h2{
+    padding: var(--space-2);
+}
+
+.prod-item div{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: var(--space-8);
+}
+
+img{
+    width: 100%;
+    height: 13rem;
+    object-fit: cover;
+}
+
+#imageInput img{
+    width:5rem;
+    height: 5rem;
+    border-radius: var(--border-radius-small);
+    display: none;
+}
+
+#add-prod.update-prod #imageInput img{
+    display: block;
+}
+
+#prod-detail header{
+    background-color: var(--color-gray-500);
+    border-radius: var(--border-radius-small);
+    display: flex;
+    padding: var(--space-8);
+    gap: var(--space-8);
+    height: 25rem;
+}
+
+#prod-detail img{
+    width: 15rem;
+    rotate: 20deg;
+    border-radius: var(--border-radius-medium);
+    object-fit: cover;
+}
+
+#prod-detail header div {
+    width: 50%;
+}
+
+#prod-detail header div:first-child{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#prod-detail>p{
+    margin-top: var(--space-4);
+    background-color: var(--color-gray-300);
+    border-radius: var(--border-radius-small);
+    padding: var(--space-2);
+    white-space: pre-wrap;
+}
+
+#prod-detail p{
+    padding: var(--space-4);
+}
+
+@media only screen and (max-width : 768px){
+    #prod-detail header{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+    }
+    
+    #prod-detail img{
+        width: 100%;
+        height: 15rem;
+        rotate: 0deg;
+    }
+
+    #prod-detail header div{
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+}

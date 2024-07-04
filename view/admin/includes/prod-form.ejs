@@ -1,0 +1,28 @@
+<div>
+    <label for="title">Title</label>
+    <input type="text" name="title" id="title" value="<%= prod.title %>" required>
+</div>
+<div class="image" id="imageInput">
+    <div>
+        <label for="image">Image</label>
+        <input type="file" name="image" id="image" accept="image/png, image/jpg" <% if(prod.imgRequired){ %>required<% } %>>
+    </div>
+
+    <img src="/product/assets/images/<%= prod.image %>" alt="Selected image">
+</div>
+<div>
+    <label for="summary">Summary</label>
+    <input type="text" name="summary" id="summary" value="<%= prod.summary %>" required>
+</div>
+<div>
+    <label for="price">Price</label>
+    <input type="number" name="price" id="price" step="0.01" value="<%= prod.price %>">
+</div>
+<div>
+    <label for="description">Description</label>
+    <textarea name="description" id="description" rows="7" required><%= prod.description %></textarea>
+</div>
+<div>
+    <button class="alt-btn" type="reset">Reset</button>
+    <button class="btn" type="submit">Submit</button>
+</div>
