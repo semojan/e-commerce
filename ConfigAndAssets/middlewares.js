@@ -46,7 +46,7 @@ function cartInitializer(req, res, next){
     }
 
     req.session.cart = cart;
-    res.locals.cartTotalQuantity = cart.totalQuantity;
+    res.locals.cart = cart;
     
     next();
 }

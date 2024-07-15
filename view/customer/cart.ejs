@@ -1,0 +1,47 @@
+<%- include("../shared/includes/head", {Ptitle: "Cart"}); %>
+    <link rel="stylesheet" href="/styles/cart.css">
+
+    <script src="/scripts/cart-update.js" defer></script>
+</head>
+<body>
+    <%- include("../shared/includes/header"); %>
+    <main>
+        <h1>Your Cart</h1>
+        <section>
+            <div>
+                <ul>
+                    <% for (item of locals.cart.items){ %>
+                        <li>
+                            <article class="cart-item">
+                                <div>
+                                    <h3><%= item.product.title %></h3>
+                                    <p>
+                                        $<span class="item-price"><%= item.totalPrice %></span>
+                                        <span class="single">($<%= item.product.price %>)</span>
+                                    </p>
+                                </div>
+                                <form data-pid="<%= item.product.id %>" class="col-xl-5 col-m-11 item-management">
+                                    <input type="number" value="<%= item.quantity %>" name="quantity" required>
+                                    <button class="alt-btn" type="submit">Update</button>
+                                </form>
+                            </article>
+                        </li>
+                    <% } %>
+                </ul>
+            </div>
+            <div>
+                <p class="total">
+                    Total: $<span id="totalP"><%= locals.cart.totalPrice.toFixed(2) %></span>
+                </p>
+                <% if(locals.isAuth){ %>
+                    <form action="/orders" method="POST">
+                        <button class="btn">Buy Products</button>
+                    </form>
+                <% } else { %>
+                    <p>Log in to proceed and purchase the items.</p>
+                <% } %>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
