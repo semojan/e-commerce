@@ -25,6 +25,11 @@ class User {
         return db.getDB().collection("users").findOne({email: this.email});
     }
 
+    static getById(uid){
+        const userid = new mongo.ObjectId(uid);
+        return db.getDB().collection("users").findOne({_id: userid},  {projection: {pass: 0}});
+    }
+
     async signup(){
         const hashedPass = await bcrypt.hash(this.pass, 12);
 

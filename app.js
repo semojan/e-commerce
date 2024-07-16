@@ -21,6 +21,7 @@ const authRoutes = require("./routes/authRoutes");
 const adminRoutes = require("./routes/adminRoutes");
 const prodRoutes = require("./routes/productRoutes");
 const cartRoutes = require("./routes/cartRoutes");
+const orderRoutes = require("./routes/orderRoutes");
 
 app.use(esession(sessionConfig()));
 
@@ -31,6 +32,7 @@ app.use(baseRoutes);
 app.use(authRoutes);
 app.use("/cart", cartRoutes);
 app.use(prodRoutes);
+app.use("/orders", orderRoutes);
 app.use("/admin", middlewares.protectRoutes, adminRoutes);
 app.use(middlewares.errorHandler);
 
