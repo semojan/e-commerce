@@ -29,4 +29,8 @@ router.post("/product/:pid", configureFile, adminCtrl.editProduct);
 
 router.delete("/product/:pid", adminCtrl.deleteProduct);
 
+router.get("/order", adminCtrl.getOrders);
+
+router.patch('/orders/:id', adminCtrl.updateOrder);
+
 module.exports = router;

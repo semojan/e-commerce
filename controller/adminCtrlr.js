@@ -1,5 +1,6 @@
 const Product = require("../model/productModel");
 const sessionFlash = require("../ConfigAndAssets/sessionFlash");
+const Orders = require("../model/ordersModel");
 
 async function getAllProducts(req, res, next){
     
@@ -79,11 +80,43 @@ async function deleteProduct(req, res, next){
     res.json({message: "deleted successfully!"});
 }
 
+async function getOrders(req, res, next){
+    let orders;
+
+    try{
+        orders = await Orders.getAllOrders();
+    }catch(e){
+        next(e);
+        return;
+    }
+    
+    res.render("admin/all-orders", {orders:orders});
+}
+
+async function updateOrder(req, res, next){
+    const orderId = req.params.id;
+    const newStatus = req.body.newStatus;
+  
+    try {
+        const order = await Orders.findById(orderId);
+        
+        order.status = newStatus;
+    
+        await order.save();
+    
+        res.json({ message: 'Order updated', newStatus: newStatus });
+    } catch (error) {
+        next(error);
+    }
+}
+
 module.exports = {
     getAllProducts: getAllProducts,
     getNewProd: getNewProd,
     addProduct: addProduct,
     getEditProduct: getEditProduct,
     editProduct: editProduct,
-    deleteProduct: deleteProduct
+    deleteProduct: deleteProduct,
+    getOrders:getOrders,
+    updateOrder: updateOrder
 };

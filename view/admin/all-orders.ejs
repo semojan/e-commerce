@@ -1,0 +1,23 @@
+<%- include("../shared/includes/head", {Ptitle: "Orders" }); %>
+<link rel="stylesheet" href="/styles/orders.css">
+
+<script src="/scripts/order.js" defer></script>
+    </head>
+
+    <body>
+        <%- include("../shared/includes/header"); %>
+            <main>
+                <h1>Orders</h1>
+                <section>
+                    <div>
+                        <ul id="orders">
+                            <% for (order of orders){ %>
+                                <%- include("../shared/includes/order-item") %>
+                            <% } %>
+                        </ul>
+                    </div>
+                </section>
+            </main>
+    </body>
+
+    </html>

@@ -32,9 +32,23 @@ class Orders{
         return orderDocs.map(this.transformOrderDocument);
     }
 
+    static async findById(orderId) {
+        const order = await db
+            .getDB()
+            .collection('orders')
+            .findOne({ _id: new mongodb.ObjectId(orderId) });
+    
+        return this.transformOrderDocument(order);
+    }
+    
+
     async save(){
         if(this.id){
-
+            const orderId = new mongodb.ObjectId(this.id);
+            return db
+                .getDB()
+                .collection('orders')
+                .updateOne({ _id: orderId }, { $set: { status: this.status } });
         } else {
             const orderData = {
                 userData: this.userData,
@@ -48,8 +62,14 @@ class Orders{
     }
 
     static async getAllOrders(){
-        const orders = await db.getDB().collection("orders").find().sort("_id: -1").toArray();
-        return this.transformOrderDocument(orders);
+        const orders = await db
+            .getDB()
+            .collection('orders')
+            .find()
+            .sort({ _id: -1 })
+            .toArray();
+
+        return this.transformOrderDocuments(orders);
     }
 
     static async getUserOrders(uid){
