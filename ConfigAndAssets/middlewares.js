@@ -51,9 +51,18 @@ function cartInitializer(req, res, next){
     next();
 }
 
+function updateCart(req, res, next){
+    const cart = res.locals.cart;
+
+    cart.updatePrices();
+
+    next();
+}
+
 module.exports  = {
     checkAuth: checkAuth,
     errorHandler:  errorHandler,
     protectRoutes: protectRoutes,
-    cartInitializer: cartInitializer
+    cartInitializer: cartInitializer,
+    updateCart: updateCart
 };

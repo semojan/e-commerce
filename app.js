@@ -27,6 +27,7 @@ app.use(esession(sessionConfig()));
 
 app.use(middlewares.cartInitializer);
 app.use(middlewares.checkAuth);
+app.use(middlewares.updateCart);
 
 app.use(baseRoutes);
 app.use(authRoutes);
