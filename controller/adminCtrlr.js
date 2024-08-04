@@ -40,6 +40,7 @@ async function getEditProduct(req, res, next){
     
     try{
         const product = await Product.findProdById(pid);
+        console.log(product)
         res.render("./admin/update-product", {product: product});
     }catch(e){
         next(e);

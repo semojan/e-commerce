@@ -56,6 +56,9 @@ function updateCart(req, res, next){
 
     cart.updatePrices();
 
+    req.session.cart = cart;
+    res.locals.cart = cart;
+
     next();
 }
 
